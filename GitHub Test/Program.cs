@@ -7,8 +7,13 @@ namespace GitHub_Test
         static void Main(string[] args)
         {
             var gen = new Generate();
-            Console.WriteLine("Hey, I'm thinking of a number between 0 and 100.\nCare to Guess?");
-            int answer = gen.num(0, 100);
+            Console.WriteLine("Hey, welcome to the Guessing Game!\nWhat number would you like to start at?");
+            int start = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("What number would you like to stop at?");
+            int stop = Convert.ToInt32(Console.ReadLine());
+
+            Console.WriteLine("\nI'm thinking of a number between " + start + " and " + stop + ".\nCare to Guess?");
+            int answer = gen.num(start, stop);
 
             int guess = Convert.ToInt32(Console.ReadLine());
             int tries = 1;
@@ -29,8 +34,8 @@ namespace GitHub_Test
                 Console.WriteLine("\nCare to try again?");
                 guess = Convert.ToInt32(Console.ReadLine());
             }
-
-            Console.WriteLine("You guessed the number! It took you " + tries + " tries.");
+            string plural = tries == 1 ? " try" : " tries";
+            Console.WriteLine("You guessed the number! It took you " + tries + plural + ".");
         }
     }
 
